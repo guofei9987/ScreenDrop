@@ -19,7 +19,7 @@ jobs:
       - name: Prepare sender package
         run: |
           VERSION=${GITHUB_REF_NAME}
-          NAME="ScrrenDrop-${VERSION}-sender-only"
+          NAME="ScreenDrop-${VERSION}-sender-only"
 
           mkdir -p "$NAME"
 
@@ -33,7 +33,7 @@ jobs:
              "$NAME/"
 
           cat > "$NAME/README.txt" << EOF
-          ScrrenDrop Sender Package
+          ScreenDrop Sender Package
 
           1. Open sender.html in a modern browser.
 
@@ -54,5 +54,5 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            ScrrenDrop-*-sender.zip
+            ScreenDrop-*-sender.zip
           generate_release_notes: true
