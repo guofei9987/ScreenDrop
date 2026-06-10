@@ -1,0 +1,58 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Prepare sender package
+        run: |
+          VERSION=${GITHUB_REF_NAME}
+          NAME="ScrrenDrop-${VERSION}-sender"
+
+          mkdir -p "$NAME"
+
+          cp sender.html \
+             sender.js \
+             sender.css \
+             protocol.js \
+             common.js \
+             common.css \
+             qrcode.min.js \
+             "$NAME/"
+
+          cat > "$NAME/README.txt" << EOF
+          ScrrenDrop Sender Package
+
+          1. Open sender.html in a modern browser.
+
+          2. On the receiving device, visit:
+
+          https://www.guofei.site/ScreenDrop/receiver.html
+
+          3. Select a file and click "Start".
+
+          No installation required.
+
+          Open Source: https://github.com/guofei9987/ScreenDrop
+          EOF
+
+          zip -r "${NAME}.zip" "$NAME"
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            ScrrenDrop-*-sender.zip
+          generate_release_notes: true
