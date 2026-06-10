@@ -47,29 +47,6 @@
   font-size: 1.8rem;
 }
 
-/* ── File info horizontal layout ── */
-.file-info-horizontal {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 12px;
-  background: rgba(0,0,0,0.2);
-  border-radius: 8px;
-  border: 1px solid rgba(255,255,255,0.1);
-  flex-wrap: wrap;
-}
-.file-info-horizontal .name {
-  font-weight: 600;
-}
-.file-info-horizontal .meta {
-  font-size: 0.9rem;
-}
-.file-info-horizontal .hash-row {
-  display: flex;
-  font-size: 0.85rem;
-  font-style: italic;
-}
-
 /* ── Jump control in controls ── */
 .jump-control {
   display: flex;

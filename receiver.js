@@ -165,11 +165,14 @@ function setFileMetadata(meta) {
   expectedSha256 = meta.sha256;
   expectedSha256Hex = bytesToHex(meta.sha256);
 
-  document.getElementById('fileInfo').style.display = '';
   document.getElementById('fileName').textContent = fileName;
   document.getElementById('fileMeta').textContent = `${formatFileSize(meta.fileSize)} · 共 ${totalChunks} 个分片`;
   document.getElementById('shaShort').textContent = expectedSha256Hex.slice(0, 16);
-  document.getElementById('hashRow').style.display = 'flex';
+  // document.getElementById('hashRow').style.display = 'flex';
+  // document.getElementById('fileInfo').style.display = '';
+  document.getElementById('transferInfoSection').classList.remove('hidden');
+
+
 }
 
 function updateProgress() {
@@ -281,11 +284,15 @@ function resetReceiver() {
   document.getElementById('errorSection').style.display = 'none';
   document.getElementById('completeSection').style.display = 'none';
   document.getElementById('scanSection').style.display = '';
-  document.getElementById('fileInfo').style.display = 'none';
   document.getElementById('progressFill').style.width = '0%';
   document.getElementById('missingChunksArea').style.display = 'none';
   document.getElementById('missingChunksText').textContent = '';
-  document.getElementById('hashRow').style.display = 'none';
+
+  // document.getElementById('fileInfo').style.display = 'none';
+  // document.getElementById('hashRow').style.display = 'none';
+  
+  document.getElementById('transferInfoSection').classList.add('hidden');
+
   showStatus('', '');
 
   init();

@@ -48,6 +48,30 @@ body {
 }
 .file-info .name { color: #000000; font-weight: 600; font-size: 1rem; margin-bottom: 4px; word-break: break-all; }
 .file-info .meta { color: #444444; font-size: 0.85rem; }
+
+/* ── File info horizontal layout ── */
+.file-info-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  flex-wrap: wrap;
+}
+.file-info-horizontal .name {
+  font-weight: 600;
+}
+.file-info-horizontal .meta {
+  font-size: 0.9rem;
+}
+.file-info-horizontal .hash-row {
+  display: flex;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
 .hash-row {
   align-items: center;
   justify-content: space-between;
@@ -103,4 +127,8 @@ input[type="range"]::-webkit-slider-thumb {
   .section { padding: 16px; }
   .stats-row { gap: 16px; }
   .stat-val { font-size: 1.2rem; }
+}
+
+.hidden {
+    display: none !important;
 }

@@ -17,6 +17,18 @@
     <p>对准电脑屏幕上的二维码，自动扫描接收。</p>
   </div>
 
+  <div class="file-info-horizontal" id="fileInfo">
+    <div class="name" id="fileName">等待扫描...</div>
+    <div class="meta" id="fileMeta"></div>
+    <div class="hash-row" id="hashRow">
+      <span>SHA-256 <code id="shaShort"></code></span>
+      <button class="btn btn-sm btn-secondary" id="copyShaBtn" type="button">
+        复制完整
+      </button>
+    </div>
+  </div>
+
+
   <!-- 扫描区域 -->
   <div class="section" id="scanSection">
     <h2>扫描中</h2>
@@ -40,18 +52,8 @@
       <div id="missingChunksText" style="word-break:break-all;color:#333;font-family:monospace;font-size:0.85rem;"></div>
     </div>
 
-    <div id="statusMsg" class="status-msg"></div>
 
-    <div class="file-info" id="fileInfo" style="display:none;">
-      <div class="name" id="fileName">等待扫描...</div>
-      <div class="meta" id="fileMeta"></div>
-      <div class="hash-row" id="hashRow" style="display:none;">
-        <span>SHA-256 <code id="shaShort"></code></span>
-        <button class="btn btn-sm btn-secondary" id="copyShaBtn" type="button">
-          复制完整
-        </button>
-      </div>
-    </div>
+
 
     <div class="controls">
       <button class="btn btn-secondary" id="clearBtn" type="button">
@@ -60,6 +62,8 @@
     </div>
 
   </div>
+  
+  <div id="statusMsg" class="status-msg"></div>
 
   <!-- 完成区域 -->
   <div class="section" id="completeSection" style="display:none;">
