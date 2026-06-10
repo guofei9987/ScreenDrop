@@ -19,7 +19,7 @@ jobs:
       - name: Prepare sender package
         run: |
           VERSION=${GITHUB_REF_NAME}
-          NAME="ScrrenDrop-${VERSION}-sender"
+          NAME="ScrrenDrop-${VERSION}-sender-only"
 
           mkdir -p "$NAME"
 
