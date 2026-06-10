@@ -56,28 +56,11 @@
   color: #2e7d32;
 }
 
-/* ── Success icon ── */
-.success-icon {
-  text-align: center;
-  margin: 20px 0;
-}
-.success-icon i {
-  font-size: 4rem;
-  color: #81c784;
-  animation: bounce 0.6s ease;
-}
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
 
 /* ── Mobile optimizations ── */
 @media (max-width: 680px) {
   .camera-area {
     max-width: 100%;
     border-radius: 12px;
-  }
-  .success-icon i {
-    font-size: 3rem;
   }
 }
