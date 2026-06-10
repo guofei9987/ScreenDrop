@@ -380,7 +380,7 @@ function updateStats() {
 
 // ========== 接收端二维码 ==========
 function generateReceiverQR() {
-  const url = 'https://www.guofei.site/tmp_ScreenDrop/qr-file-transfer/receiver.html';
+  const url = 'https://www.guofei.site/ScreenDrop/receiver.html';
   const container = document.getElementById('receiverQr');
   
   QRCode.toCanvas(document.createElement('canvas'), url, {
