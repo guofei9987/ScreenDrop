@@ -1,10 +1,10 @@
-# SreenDrop
+# ScreenDrop
 
 > Offline file transfer via QR codes.
 >
 > No network. No Bluetooth. No installation required.
 
-SreenDrop is a browser-based file transfer tool that uses a sequence of QR codes to transmit files between devices.
+ScreenDrop is a browser-based file transfer tool that uses a sequence of QR codes to transmit files between devices.
 
 All you need is:
 
@@ -30,31 +30,26 @@ No Wi-Fi, no Bluetooth, no AirDrop, and no native app installation.
 
 ## 🚀 Try it
 
+### Sender
+
+[https://www.guofei.site/ScreenDrop/sender.html](https://www.guofei.site/ScreenDrop/sender.html)
+
+Select a file and start transmission.
+
 ### Receiver
 
 Open:
 
-```
-https://YOUR_RECEIVER_URL_HERE
-```
+[https://www.guofei.site/ScreenDrop/receiver.html](https://www.guofei.site/ScreenDrop/receiver.html)
 
 Allow camera access and start scanning.
 
-### Sender
-
-Open:
-
-```
-sender.html
-```
-
-Select a file and start transmission.
 
 ---
 
 ## 📖 How it works
 
-SreenDrop transfers files using the following process:
+ScreenDrop transfers files using the following process:
 
 ```
 File
@@ -98,7 +93,7 @@ Download
 
 ## ⚙ Transmission Modes
 
-SreenDrop provides several chunk-size presets:
+ScreenDrop provides several chunk-size presets:
 
 | Mode                   | Description                                |
 | ---------------------- | ------------------------------------------ |
@@ -133,9 +128,9 @@ Bluetooth pairing can be inconvenient and is not always available across platfor
 
 AirDrop only works within the Apple ecosystem.
 
-### Is SreenDrop fast?
+### Is ScreenDrop fast?
 
-SreenDrop prioritizes universality and offline availability over raw speed.
+ScreenDrop prioritizes universality and offline availability over raw speed.
 
 ### What happens if some QR codes are missed?
 
@@ -168,15 +163,11 @@ Demo video:
 
 Sender-only package:
 
-```
-https://YOUR_RELEASE_URL_HERE
-```
+[https://github.com/guofei9987/ScreenDrop/releases](https://github.com/guofei9987/ScreenDrop/releases)
 
 GitHub Releases:
 
-```
-https://github.com/YOUR_USERNAME/SreenDrop/releases
-```
+[https://github.com/guofei9987/ScreenDrop/releases](https://github.com/guofei9987/ScreenDrop/releases)
 
 ---
 
