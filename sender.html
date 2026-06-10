@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="二维码传文件">
+  <title>二维码传文件 - 发送端</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="sender.css">
+  <script src="qrcode.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>二维码传文件-发送端</h1>
+    <p>纯前端实现，无服务器，离线可用</p>
+  </div>
+
+
+  <div class="section" id="selectSection">
+    <div class="upload-area" id="uploadArea">
+      <h2>选择文件</h2>
+      <p>点击选择文件或拖拽到此处</p>
+      <span class="hint">建议 100KB 以内，大文件需要更长时间</span>
+      <input type="file" id="fileInput" hidden>
+    </div>
+
+    <div id="textPanel" style="display:none;">
+      <div class="text-input-group">
+        <textarea id="textInput" rows="7" placeholder="在这里输入或粘贴文本，然后点击【开始发送】..."></textarea>
+        <div class="char-count">
+          字符数：<span id="charCount">0</span>
+        </div>
+      </div>
+      <div class="text-actions">
+        <button class="btn btn-primary" id="sendTextBtn">开始发送</button>
+        <button class="btn btn-secondary" id="cancelTextBtn">取消</button>
+      </div>
+    </div>
+
+    <div id="actionButtons" style="text-align:center;margin-top:16px;">
+      <button class="btn btn-secondary" id="demoBtn">
+        使用示例文件
+      </button>
+      <button class="btn btn-secondary" id="textBtn" style="margin-left:8px;">
+        输入文本
+      </button>
+    </div>
+
+    <div class="file-info" id="fileInfo" style="display:none;">
+      <div class="name" id="fileName"></div>
+      <div class="meta" id="fileMeta"></div>
+    </div>
+
+    <div class="slider-group">
+      <div>分片大小</div>
+      <select id="chunkSize"></select>
+      <div>（合适的档位取决于接收设备的性能）</div>
+    </div>
+
+    <div style="text-align:center;margin-top:20px;">
+      <button class="btn btn-primary" id="startBtn" disabled>
+        开始生成二维码
+      </button>
+    </div>
+  </div>
+
+  <!-- 传输中 -->
+  <div class="section" id="transferSection" style="display:none;">
+    <h2>正在播放二维码</h2>
+
+    <div class="file-info-horizontal">
+      <div class="name" id="txFileName"></div>
+      <div class="meta" id="txFileMeta"></div>
+      <div class="hash-row" id="txHashRow" style="display:none;">
+        <span>SHA-256 <code id="txShaShort"></code></span>
+        <button class="btn btn-sm btn-secondary" id="copyTxShaBtn" type="button">
+          复制完整
+        </button>
+      </div>
+    </div>
+
+    <div class="qr-area">
+      <div class="qr-container">
+        <canvas id="qrCanvas" width="320" height="320"></canvas>
+      </div>
+      <div class="chunk-indicator">
+        <span id="currentChunk">1</span> / <span id="totalChunks">1</span>
+      </div>
+    </div>
+
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill" style="width:0%"></div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-val" id="statSpeed">-</div>
+        <div class="stat-label">切换速度</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val" id="statEta">-</div>
+        <div class="stat-label">预计时间</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-val" id="statLoop">1</div>
+        <div class="stat-label">循环次数</div>
+      </div>
+    </div>
+
+    <div class="slider-group">
+      <div class="slider-label">
+        <span>播放速度</span>
+        <span class="val" id="speedVal">300ms</span>
+      </div>
+      <input type="range" id="speedSlider" min="100" max="1000" value="300" step="50">
+    </div>
+
+    <div class="controls">
+      <button class="btn btn-secondary" id="pauseBtn">
+        暂停
+      </button>
+      <button class="btn btn-secondary" id="nextBtn">
+        下一张
+      </button>
+      <div class="jump-control">
+        <input type="number" id="jumpChunkNum" min="1" placeholder="分片编号" style="width:80px;padding:8px;border:1px solid #ddd;border-radius:4px;">
+        <button class="btn btn-secondary" id="jumpBtn" style="padding:8px 12px;">
+          跳转
+        </button>
+      </div>
+      <button class="btn btn-secondary" id="newFileBtn">
+        换个文件
+      </button>
+    </div>
+  </div>
+
+  <!-- 接收端入口 -->
+  <div class="section">
+    <h2>手机接收</h2>
+    <p style="color:#444444;margin-bottom:16px;">用手机浏览器打开接收端页面，对准屏幕扫描即可。</p>
+    
+    <div class="receiver-link">
+      <div class="link-box">
+        <span id="receiverUrl">https://www.guofei.site/ScreenDrop/receiver.html</span>
+        <button class="btn btn-sm btn-secondary" onclick="copyReceiverUrl(this)">
+          复制
+        </button>
+      </div>
+      <div class="qr-small" id="receiverQr"></div>
+      <p style="font-size:0.85rem;color:#444444;margin-top:8px;">或扫描上方二维码打开接收端（要用浏览器打开）</p>
+    </div>
+  </div>
+
+</div>
+
+<script src="protocol.js"></script>
+<script src="common.js"></script>
+<script src="sender.js"></script>
+</body>
+</html>

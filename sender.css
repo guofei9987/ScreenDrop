@@ -1,0 +1,175 @@
+/* ── Upload area ── */
+.upload-area {
+  border: 2px dashed #d8dde6;
+  border-radius: 8px;
+  padding: 60px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #f6f7f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+}
+.upload-area:hover, .upload-area.dragover {
+  border-color: #1d6fb8;
+  background: #f0f5ff;
+}
+.upload-area i {
+  font-size: 3.5rem;
+  color: #1d6fb8;
+  margin-bottom: 16px;
+  display: block;
+  opacity: 0.8;
+}
+.upload-area p {
+  color: #222831;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.upload-area .hint {
+  color: #6b7280;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* ── Chunk indicator ── */
+.chunk-indicator {
+  margin-top: 16px;
+  font-size: 1.2rem;
+  color: #ffd700;
+  font-weight: 700;
+}
+.chunk-indicator span:first-child {
+  font-size: 1.8rem;
+}
+
+/* ── File info horizontal layout ── */
+.file-info-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+  flex-wrap: wrap;
+}
+.file-info-horizontal .name {
+  font-weight: 600;
+}
+.file-info-horizontal .meta {
+  font-size: 0.9rem;
+}
+.file-info-horizontal .hash-row {
+  display: flex;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* ── Jump control in controls ── */
+.jump-control {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+/* ── Receiver link section ── */
+.receiver-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.link-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0,0,0,0.25);
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.1);
+  max-width: 100%;
+  overflow: hidden;
+}
+.link-box span {
+  color: #0b76da;
+  font-size: 0.85rem;
+  word-break: break-all;
+}
+.qr-small {
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+}
+.qr-small canvas {
+  display: block;
+  width: 120px !important;
+  height: 120px !important;
+}
+
+/* ── Text input panel ── */
+#textPanel {
+  display: none;
+}
+.text-input-group {
+  margin-bottom: 12px;
+}
+#textInput {
+  width: 100%;
+  min-height: 150px;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  resize: vertical;
+  box-sizing: border-box;
+}
+.char-count {
+  text-align: right;
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: #666;
+}
+.text-actions {
+  text-align: center;
+}
+#cancelTextBtn {
+  margin-left: 8px;
+}
+#cancelTextBtn {
+  margin-left: 8px;
+}
+
+/* 档位区域 */
+.slider-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.slider-group div{
+    font-size:0.8rem;
+    color:#444444;
+    margin-top:4px;
+}
+
+/* ── Mobile ── */
+@media (max-width: 680px) {
+  .upload-area {
+    padding: 30px 16px;
+  }
+  .upload-area i {
+    font-size: 2.5rem;
+  }
+  .link-box {
+    flex-direction: column;
+    text-align: center;
+  }
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="二维码传文件">
+  <title>二维码传文件 - 接收端</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="receiver.css">
+  <script src="jsqr.min.js"></script>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <h1>接收文件</h1>
+    <p>对准电脑屏幕上的二维码，自动扫描接收。</p>
+  </div>
+
+  <!-- 扫描区域 -->
+  <div class="section" id="scanSection">
+    <h2>扫描中</h2>
+    
+    <div class="camera-area">
+      <video id="video" playsinline></video>
+      <canvas id="scanCanvas" hidden></canvas>
+      <div class="scan-overlay">
+        <div class="scan-frame"></div>
+      </div>
+    </div>
+
+
+
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill" style="width:0%"></div>
+    </div>
+
+    <div id="missingChunksArea" style="display:none;margin:16px 0;padding:12px;background:#f5f5f5;border-radius:4px;">
+      <div style="font-size:0.9rem;color:#666;margin-bottom:8px;">待接收分片编号：</div>
+      <div id="missingChunksText" style="word-break:break-all;color:#333;font-family:monospace;font-size:0.85rem;"></div>
+    </div>
+
+    <div id="statusMsg" class="status-msg"></div>
+
+    <div class="file-info" id="fileInfo" style="display:none;">
+      <div class="name" id="fileName">等待扫描...</div>
+      <div class="meta" id="fileMeta"></div>
+      <div class="hash-row" id="hashRow" style="display:none;">
+        <span>SHA-256 <code id="shaShort"></code></span>
+        <button class="btn btn-sm btn-secondary" id="copyShaBtn" type="button">
+          复制完整
+        </button>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn btn-secondary" id="clearBtn" type="button">
+        清空并重新接收
+      </button>
+    </div>
+
+  </div>
+
+  <!-- 完成区域 -->
+  <div class="section" id="completeSection" style="display:none;">
+    <h2>接收完成</h2>
+
+    <div class="controls">
+      <button class="btn btn-primary btn-full" id="downloadBtn">
+        下载文件
+      </button>
+    </div>
+
+    <div style="margin-top:16px;text-align:center;">
+      <button class="btn btn-secondary" id="resetBtn">
+        清空并重新接收
+      </button>
+    </div>
+  </div>
+
+  <!-- 错误提示 -->
+  <div class="section" id="errorSection" style="display:none;">
+    <h2 style="color:#ef9a9a;">出错了</h2>
+    <p id="errorMsg" style="color:#a0a0a0;"></p>
+    <div style="margin-top:16px;text-align:center;">
+      <button class="btn btn-primary" onclick="location.reload()">
+        重试
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<script src="protocol.js"></script>
+<script src="common.js"></script>
+<script src="receiver.js"></script>
+</body>
+</html>
