@@ -1,5 +1,7 @@
 # ScreenDrop
 
+English | [简体中文](README_cn.md)
+
 > Offline file transfer via QR codes.
 >
 > No network. No Bluetooth. No installation required.
@@ -183,3 +185,8 @@ If you encounter compatibility problems with a specific browser or device, pleas
 MIT License.
 
 See `LICENSE` for details.
+
+## 🙏 Thanks to
+
+This project was inspired by:  
+https://github.com/MingGH/demo-mock-server/tree/main/numfeel-site/pages/qr-file-transfer
