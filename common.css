@@ -43,15 +43,8 @@ body {
 .stat-val { font-size: 1.5rem; font-weight: 700; color: #000000; }
 .stat-label { font-size: 0.8rem; color: #444444; }
 
-.file-info {
-  background: #f5f5f5; border-radius: 12px; padding: 16px 20px;
-  margin: 16px 0; border: 1px solid #e0e0e0;
-}
-.file-info .name { color: #000000; font-weight: 600; font-size: 1rem; margin-bottom: 4px; word-break: break-all; }
-.file-info .meta { color: #444444; font-size: 0.85rem; }
-
 /* ── File info horizontal layout ── */
-.file-info-horizontal {
+.file-info {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -61,13 +54,14 @@ body {
   border: 1px solid rgba(255,255,255,0.1);
   flex-wrap: wrap;
 }
-.file-info-horizontal .name {
+.file-info .name {
   font-weight: 600;
 }
-.file-info-horizontal .meta {
+.file-info .meta {
   font-size: 0.9rem;
 }
-.file-info-horizontal .hash-row {
+
+.file-info .hash-row {
   display: flex;
   font-size: 0.85rem;
   font-style: italic;
@@ -88,15 +82,6 @@ body {
   font-size: 0.9em;
 }
 
-/* ── QR display area ── */
-.qr-area {
-  display: flex; flex-direction: column; align-items: center; padding: 20px;
-}
-.qr-container {
-  background: #ffffff; padding: 16px; border-radius: 12px;
-  border: 1px solid #e0e0e0;
-}
-.qr-container canvas, .qr-container img { display: block; }
 
 /* ── Controls ── */
 .controls {

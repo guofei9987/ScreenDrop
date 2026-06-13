@@ -20,9 +20,9 @@
 
   <div class="section" id="selectSection">
     <div class="upload-area" id="uploadArea">
-      <h2>选择文件</h2>
-      <p>点击选择文件或拖拽到此处</p>
-      <span class="hint">建议 100KB 以内，大文件需要更长时间</span>
+      <h2 id="uploadTitle">选择文件</h2>
+      <p id="uploadSubtitle">点击选择文件或拖拽到此处</p>
+      <span class="hint" id="uploadHint">建议 100KB 以内，大文件需要更长时间</span>
       <input type="file" id="fileInput" hidden>
     </div>
 
@@ -48,11 +48,6 @@
       </button>
     </div>
 
-    <div class="file-info" id="fileInfo" style="display:none;">
-      <div class="name" id="fileName"></div>
-      <div class="meta" id="fileMeta"></div>
-    </div>
-
     <div class="slider-group">
       <div>分片大小</div>
       <select id="chunkSize"></select>
@@ -70,7 +65,7 @@
   <div class="section" id="transferSection" style="display:none;">
     <h2>正在播放二维码</h2>
 
-    <div class="file-info-horizontal">
+    <div class="file-info">
       <div class="name" id="txFileName"></div>
       <div class="meta" id="txFileMeta"></div>
       <div class="hash-row" id="txHashRow" style="display:none;">

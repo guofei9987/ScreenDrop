@@ -167,8 +167,7 @@ function cancelText() {
 function handleFile(file) {
   console.log('handleFile 被调用:', file.name, file.size);
   selectedFile = file;
-  document.getElementById('fileInfo').style.display = '';
-  document.getElementById('fileName').textContent = file.name;
+  document.getElementById('uploadTitle').textContent = file.name;
   updateFileInfo();
   document.getElementById('startBtn').disabled = false;
 }
@@ -229,9 +228,10 @@ function updateFileInfo() {
   const chunkSize = parseInt(document.getElementById('chunkSize').value);
   const estimatedChunks = Math.ceil(selectedFile.size / chunkSize);
   const estimatedTime = (estimatedChunks * playSpeed / 1000).toFixed(1);
-  
-  document.getElementById('fileMeta').textContent = 
+
+  document.getElementById('uploadSubtitle').textContent =
     `${formatFileSize(selectedFile.size)} · 约 ${estimatedChunks} 个二维码 · 预计 ${estimatedTime} 秒`;
+  document.getElementById('uploadHint').textContent = '点击或拖动重新选择 · 建议100KB以内，大文件需要更长时间';
 }
 
 // ========== 开始传输 ==========
@@ -374,10 +374,12 @@ function selectNewFile() {
   chunks = [];
   selectedFile = null;
   currentFileSha256 = '';
-  
+
   document.getElementById('transferSection').style.display = 'none';
   document.getElementById('selectSection').style.display = '';
-  document.getElementById('fileInfo').style.display = 'none';
+  document.getElementById('uploadTitle').textContent = '选择文件';
+  document.getElementById('uploadSubtitle').textContent = '点击选择文件或拖拽到此处';
+  document.getElementById('uploadHint').textContent = '建议 100KB 以内，大文件需要更长时间';
   document.getElementById('txHashRow').style.display = 'none';
   document.getElementById('startBtn').disabled = true;
   document.getElementById('fileInput').value = '';
